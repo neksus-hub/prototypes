@@ -10,6 +10,7 @@ const DomElement = function (selector, height, width, bg, fontsize) {
   width = this.width;
   bg = this.bg;
   fontsize = this.fontsize;
+  text = this.text;
 };
 
 DomElement.prototype.createNewElement = function () {
@@ -44,6 +45,10 @@ DomElement.prototype.createNewElement = function () {
   }
 };
 
+DomElement.prototype.addText = function () {
+  newElem.innerHTML = this.text;
+};
+
 DomElement.prototype.getClassOrId = function () {
   classOrId = DomElement.selector.substring(1);
   console.log(classOrId);
@@ -55,6 +60,7 @@ DomElement.prototype.asking = function () {
   DomElement.width = prompt("Какая ширина?");
   DomElement.bg = prompt("Какой цвет?");
   DomElement.fontsize = prompt("Какой размер шрифта?");
+  this.text = prompt("введите текст, который появится внутри этого элемента");
 };
 
 DomElement.prototype.firstSymbol = function () {
@@ -65,3 +71,4 @@ DomElement.prototype.asking();
 DomElement.prototype.firstSymbol();
 DomElement.prototype.getClassOrId();
 DomElement.prototype.createNewElement();
+DomElement.prototype.addText();
