@@ -19,13 +19,13 @@ DomElement.prototype.createNewElement = function () {
     newElem.classList.add(classOrId);
     newElem.style.cssText =
       "height: " +
-      DomElement.height +
+      this.height +
       "; width: " +
-      DomElement.width +
+      this.width +
       "; background-color: " +
-      DomElement.bg +
+      this.bg +
       "; font-size: " +
-      DomElement.bg +
+      this.fontsize +
       ";";
     body.appendChild(newElem);
   } else if (firstSymbol === "#") {
@@ -33,13 +33,13 @@ DomElement.prototype.createNewElement = function () {
     newElem.id = classOrId;
     newElem.style.cssText =
       "height: " +
-      DomElement.height +
+      this.height +
       "; width: " +
-      DomElement.width +
+      this.width +
       "; background-color: " +
-      DomElement.bg +
+      this.bg +
       "; font-size: " +
-      DomElement.bg +
+      this.fontsize +
       ";";
     body.appendChild(newElem);
   }
@@ -50,25 +50,29 @@ DomElement.prototype.addText = function () {
 };
 
 DomElement.prototype.getClassOrId = function () {
-  classOrId = DomElement.selector.substring(1);
+  classOrId = this.selector.substring(1);
   console.log(classOrId);
 };
 
 DomElement.prototype.asking = function () {
-  DomElement.selector = prompt("Какой элемент вы хотите создать?");
-  DomElement.height = prompt("Какая высота?");
-  DomElement.width = prompt("Какая ширина?");
-  DomElement.bg = prompt("Какой цвет?");
-  DomElement.fontsize = prompt("Какой размер шрифта?");
+  this.selector = prompt("Какой элемент вы хотите создать?");
+  this.height = prompt("Какая высота?");
+  this.width = prompt("Какая ширина?");
+  this.bg = prompt("Какой цвет?");
+  this.fontsize = prompt("Какой размер шрифта?");
   this.text = prompt("введите текст, который появится внутри этого элемента");
 };
 
 DomElement.prototype.firstSymbol = function () {
-  firstSymbol = DomElement.selector.split("")[0];
+  firstSymbol = this.selector.split("")[0];
 };
 
-DomElement.prototype.asking();
-DomElement.prototype.firstSymbol();
-DomElement.prototype.getClassOrId();
-DomElement.prototype.createNewElement();
-DomElement.prototype.addText();
+DomElement.prototype.start = function () {
+  DomElement.prototype.asking();
+  DomElement.prototype.firstSymbol();
+  DomElement.prototype.getClassOrId();
+  DomElement.prototype.createNewElement();
+  DomElement.prototype.addText();
+};
+
+DomElement.prototype.start();
