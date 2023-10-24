@@ -16,10 +16,30 @@ DomElement.prototype.createNewElement = function () {
   if (firstSymbol === ".") {
     newElem = document.createElement("div");
     newElem.classList.add(classOrId);
+    newElem.style.cssText =
+      "height: " +
+      DomElement.height +
+      "; width: " +
+      DomElement.width +
+      "; background-color: " +
+      DomElement.bg +
+      "; font-size: " +
+      DomElement.bg +
+      ";";
     body.appendChild(newElem);
   } else if (firstSymbol === "#") {
     newElem = document.createElement("p");
     newElem.id = classOrId;
+    newElem.style.cssText =
+      "height: " +
+      DomElement.height +
+      "; width: " +
+      DomElement.width +
+      "; background-color: " +
+      DomElement.bg +
+      "; font-size: " +
+      DomElement.bg +
+      ";";
     body.appendChild(newElem);
   }
 };
@@ -31,10 +51,10 @@ DomElement.prototype.getClassOrId = function () {
 
 DomElement.prototype.asking = function () {
   DomElement.selector = prompt("Какой элемент вы хотите создать?");
-  // DomElement.height = prompt("Какая высота?");
-  // DomElement.width = prompt("Какая ширина?");
-  // DomElement.bg = prompt("Какой цвет?");
-  // DomElement.fontsize = prompt("Какой размер шрифта?");
+  DomElement.height = prompt("Какая высота?");
+  DomElement.width = prompt("Какая ширина?");
+  DomElement.bg = prompt("Какой цвет?");
+  DomElement.fontsize = prompt("Какой размер шрифта?");
 };
 
 DomElement.prototype.firstSymbol = function () {
