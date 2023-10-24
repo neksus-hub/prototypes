@@ -2,6 +2,7 @@
 let body = document.querySelector("body");
 let newElem;
 let firstSymbol;
+let classOrId;
 
 const DomElement = function (selector, height, width, bg, fontsize) {
   selector = this.selector;
@@ -13,14 +14,15 @@ const DomElement = function (selector, height, width, bg, fontsize) {
 
 DomElement.prototype.createNewElement = function () {
   if (firstSymbol === ".") {
-    newElem = document.createElement("div");
-    body.appendChild(newElem);
-    console.log(newElem);
+    body.innerHTML = "<div class = " + classOrId + "></div>";
   } else if (firstSymbol === "#") {
-    newElem = document.createElement("p");
-    body.appendChild(newElem);
-    console.log(newElem);
+    body.innerHTML = "<p id = " + classOrId + "></p>";
   }
+};
+
+DomElement.prototype.getClassOrId = function () {
+  classOrId = DomElement.selector.substring(1);
+  console.log(classOrId);
 };
 
 DomElement.prototype.asking = function () {
@@ -37,4 +39,5 @@ DomElement.prototype.firstSymbol = function () {
 
 DomElement.prototype.asking();
 DomElement.prototype.firstSymbol();
+DomElement.prototype.getClassOrId();
 DomElement.prototype.createNewElement();
