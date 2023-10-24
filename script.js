@@ -14,9 +14,13 @@ const DomElement = function (selector, height, width, bg, fontsize) {
 
 DomElement.prototype.createNewElement = function () {
   if (firstSymbol === ".") {
-    body.innerHTML = "<div class = " + classOrId + "></div>";
+    newElem = document.createElement("div");
+    newElem.classList.add(classOrId);
+    body.appendChild(newElem);
   } else if (firstSymbol === "#") {
-    body.innerHTML = "<p id = " + classOrId + "></p>";
+    newElem = document.createElement("p");
+    newElem.id = classOrId;
+    body.appendChild(newElem);
   }
 };
 
