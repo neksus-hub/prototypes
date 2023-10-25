@@ -24,12 +24,15 @@ document.addEventListener(
         newElem.style.cssText =
           "height: " +
           this.height +
+          "px" +
           "; width: " +
           this.width +
+          "px" +
           "; background-color: " +
           this.bg +
           "; font-size: " +
           this.fontsize +
+          "px" +
           ";" +
           "position: absolute;";
         body.appendChild(newElem);
@@ -39,12 +42,15 @@ document.addEventListener(
         newElem.style.cssText =
           "height: " +
           this.height +
+          "px" +
           "; width: " +
           this.width +
+          "px" +
           "; background-color: " +
           this.bg +
           "; font-size: " +
           this.fontsize +
+          "px" +
           ";" +
           "position: absolute;";
         body.appendChild(newElem);
@@ -62,10 +68,10 @@ document.addEventListener(
 
     DomElement.prototype.asking = function () {
       this.selector = prompt("Какой элемент вы хотите создать?");
-      this.height = prompt("Какая высота?");
-      this.width = prompt("Какая ширина?");
-      this.bg = prompt("Какой цвет?");
-      this.fontsize = prompt("Какой размер шрифта?");
+      this.height = prompt("Укажите высоту в px");
+      this.width = prompt("Укажите ширину в px");
+      this.bg = prompt("Укажите цвет (англ)");
+      this.fontsize = prompt("Укажите размер шрифта в px");
       this.text = prompt(
         "введите текст, который появится внутри этого элемента"
       );
@@ -75,12 +81,18 @@ document.addEventListener(
       firstSymbol = this.selector.split("")[0];
     };
 
+    DomElement.prototype.keyDown = function () {
+      const element = document.querySelector("div, p");
+      console.log(element);
+    };
+
     DomElement.prototype.start = function () {
       DomElement.prototype.asking();
       DomElement.prototype.firstSymbol();
       DomElement.prototype.getClassOrId();
       DomElement.prototype.createNewElement();
       DomElement.prototype.addText();
+      DomElement.prototype.keyDown();
     };
 
     DomElement.prototype.start();
