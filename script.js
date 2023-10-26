@@ -83,7 +83,23 @@ document.addEventListener(
 
     DomElement.prototype.keyDown = function () {
       const element = document.querySelector("div, p");
-      console.log(element);
+      let left = 0;
+      let top = 0;
+      window.addEventListener("keydown", function (event) {
+        if (event.key == "ArrowLeft") {
+          left = left - 10;
+          element.style.left = left + "px";
+        } else if (event.key == "ArrowRight") {
+          left = left + 10;
+          element.style.left = left + "px";
+        } else if (event.key == "ArrowUp") {
+          top = top - 10;
+          element.style.top = top + "px";
+        } else if (event.key == "ArrowDown") {
+          top = top + 10;
+          element.style.top = top + "px";
+        }
+      });
     };
 
     DomElement.prototype.start = function () {
